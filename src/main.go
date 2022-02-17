@@ -2,6 +2,7 @@ package main
 
 import (
 	"currency/routes"
+	"currency/utils"
 	"currency/validate"
 	"fmt"
 	"net/http"
@@ -10,6 +11,7 @@ import (
 
 func main() {
 	go validate.ValidateInit()
+	go utils.InitCurrencyInfo()
 	server := &http.Server{
 		Addr:         fmt.Sprintf(":%d", 8888),
 		Handler:      routes.InitRoute(),
