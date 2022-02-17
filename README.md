@@ -11,6 +11,7 @@ This is a simple for exchange currency's API
 - [API](#api)
     - [GET Currency](#get-currency)
 - [Architecture](#architecture)
+    - [Trees](#trees)
     - [Request Flow](#request-flow)
     - [Unit Test](#unit-test)
 
@@ -57,6 +58,8 @@ Base url `http://localhost:8888/api/v1`
 
 ## Architecture
 
+### Trees
+
 ```
 .
 ├── go/
@@ -74,10 +77,12 @@ Base url `http://localhost:8888/api/v1`
 
 ### Request Flow
 
+- This project is follow part of [Service & Repository](#http://kejyun.github.io/Laravel-5-Learning-Notes-Books/structure/structure-service-repository-structure-principle.html), but our case just has one use case here, so this project has no `Repository Layer` here 
+
 `route => controllers => services`
 
-- This project use `wire` for inject
-`https://github.com/google/wire`
+- This project use [wire](#https://github.com/google/wire) for inject
+
 - In route, we define the API path and http method
 - In controllers, will validate parameter is correct or not, and send parameter to service
 - In services, this part will process our business logic. In this project, we will calc our currency
