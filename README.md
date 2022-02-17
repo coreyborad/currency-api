@@ -38,7 +38,7 @@ Base url `http://localhost:8888/api/v1`
 ### Get currency
 - URL `[GET]http://localhost:8888/api/v1/currency`
 
-- Querystring
+- Query string
 
 | Parameter    | Type                    | Required | Description    |
 | -------------- | ------------------------- | ------ | ------- |
