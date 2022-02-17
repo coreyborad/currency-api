@@ -39,8 +39,8 @@ Base url `http://localhost:8888/api/v1`
 
 - Querystring
 
-| Parameter           | Type                      | Required | Description    |
-|--------------|-------------------------|------|-------|---|
+| Parameter    | Type                    | Required | Description    |
+| -------------- | ------------------------- | ------ | ------- |
 | in_currency  | enum("TWD","JPY","USD") | Y    | 輸入原匯率 |
 | out_currency | enum("TWD","JPY","USD") | Y    | 輸出匯率  |
 | price        | float64                 | Y    | 金額    |  
