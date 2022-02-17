@@ -1,0 +1,73 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Currency API",
+        "description": "This is simple api for get currency",
+        "version": "0.0.1"
+    },
+    "host": "localhost:8888",
+    "basePath": "/api/v1",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/currency": {
+            "get": {
+                "tags": [
+                    "Currency"
+                ],
+                "summary": "Calc currency",
+                "description": "",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "in_currency",
+                        "in": "query",
+                        "description": "In currency",
+                        "required": true,
+                        "type": "string",
+                        "enum": ["TWD", "JPY", "USD"]
+                    },
+                    {
+                        "name": "out_currency",
+                        "in": "query",
+                        "description": "Out currency",
+                        "required": true,
+                        "type": "string",
+                        "enum": ["TWD", "JPY", "USD"]
+                    },
+                    {
+                        "name": "price",
+                        "in": "query",
+                        "description": "Your price",
+                        "required": true,
+                        "type": "number",
+                        "format": "float64",
+                        "minimum": 0
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful",
+                        "headers": {
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result":{}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad requesut"
+                    },
+                    "500": {
+                        "description": "Unknown error"
+                    }
+                }
+            }
+        }
+    }
+}
