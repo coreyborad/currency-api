@@ -1,6 +1,6 @@
 ## Description
 
-This is a simple for exchange currency's API
+匯率轉換API
 
 ## Table of Contents
 
@@ -22,17 +22,17 @@ This is a simple for exchange currency's API
 
 ## Quick Start
 
-- Run Docker container
+- 執行 Docker container
     - Into root directory
     - Input ```docker-compose up -d```
-- Run API
-    - With CURL
+- 執行 API
+    - CURL版本
     `curl -X 'GET' 'http://localhost:8888/api/v1/currency?in_currency=TWD&out_currency=JPY&price=20'`
-    - You can use `Swagger`, this project has `swagger.json`
+    - 你也可以使用 `Swagger`, `swagger.json`在專案根目錄中有附上
 
 ## API
 
-Default http server port is `8888`
+預設的http server port為 `8888`
 Base url `http://localhost:8888/api/v1`
 
 ### Get currency
@@ -77,22 +77,19 @@ Base url `http://localhost:8888/api/v1`
 
 ### Request Flow
 
-- This project is follow part of [Service & Repository](#http://kejyun.github.io/Laravel-5-Learning-Notes-Books/structure/structure-service-repository-structure-principle.html), but our case just has one use case here, so this project has no `Repository Layer` here 
+- 這專案的檔案結構是依照 [Service & Repository](#http://kejyun.github.io/Laravel-5-Learning-Notes-Books/structure/structure-service-repository-structure-principle.html), 以本專案而言，目前只有使用1個API，示範用途，這邊只會做到`Service Layer`
 
 `route => controllers => services`
 
-- This project use [wire](#https://github.com/google/wire) for inject
+- 使用 [wire](#https://github.com/google/wire) 來做 `inject`的動作
 
-- In route, we define the API path and http method
-- In controllers, will validate parameter is correct or not, and send parameter to service
-- In services, this part will process our business logic. In this project, we will calc our currency
-
-- In models, we define controllers's parameter struct
-
-- In utils, we set a const of conrrency here in `currency.go`
+- 在route layer，定義http method以及api path
+- 在controllers layer，會驗證parameter，接著將parameter送至services layer
+- 在services layer，這邊會處理業務邏輯，同時也是在這邊處理currency的部份
+- 在models layer，定義要接收的parameter struct
 
 ### UnitTest
 
-In our case, our logic all of in the service layer `currency.go`
+本專案有處理的業務邏輯的部份，只有在services layer的 `currency.go`
 
 this test coverage is `84.6%`
